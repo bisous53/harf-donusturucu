@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Harf Dönüştürücü</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background: #f8f8f8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    textarea {
+      width: 100%;
+      max-width: 600px;
+      height: 150px;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      font-size: 1rem;
+      resize: vertical;
+    }
+    button {
+      margin: 0.25rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Harf Dönüştürücü</h1>
+  <textarea id="inputText" placeholder="Metni buraya yaz ya da yapıştır..."></textarea>
+  <div>
+    <button onclick="toUpperCase()">BÜYÜK HARF</button>
+    <button onclick="toLowerCase()">küçük harf</button>
+    <button onclick="toTitleCase()">Başlık Harfi</button>
+  </div>
+  <script>
+    function toUpperCase() {
+      const text = document.getElementById("inputText").value;
+      document.getElementById("inputText").value = text.toUpperCase();
+    }
+
+    function toLowerCase() {
+      const text = document.getElementById("inputText").value;
+      document.getElementById("inputText").value = text.toLowerCase();
+    }
+
+    function toTitleCase() {
+      const text = document.getElementById("inputText").value;
+      const converted = text.toLowerCase().replace(/\b(\w)/g, char => char.toUpperCase());
+      document.getElementById("inputText").value = converted;
+    }
+  </script>
+</body>
+</html>
